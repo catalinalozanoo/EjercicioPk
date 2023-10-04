@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Result: Codable, Identifiable {
+struct Result: Codable, Identifiable, Equatable {
     let id = UUID().uuidString
    var name: String
    var url: String

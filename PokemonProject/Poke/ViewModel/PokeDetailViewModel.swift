@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class PokeDetailViewModel: ObservableObject {
     
-    private struct Main: Codable {
+     struct Mainn: Codable {
         var height: Double
         var weight: Double
         var id: Int
@@ -19,21 +19,7 @@ class PokeDetailViewModel: ObservableObject {
         var stats: [Stats]
     }
     
-    /*
-    struct Stats: Codable {
-        var base_stat: Int
-        var effort: Int
-        var stat: Species
-    }
-    struct TypeElement: Codable {
-        let slot: Int
-        let type: Species
-    }
-    struct Species: Codable {
-        var name: String
-        var url:String
-    }*/
-  
+    
     var urlString = ""
     @Published var typesArray: [TypeElement] = []
     @Published var statsArray: [Stats] = []
@@ -42,18 +28,13 @@ class PokeDetailViewModel: ObservableObject {
     @Published var id = 0
     @Published var imageUrl = ""
     @Published var imageUrlShiny = ""
-    
     @Published var nameSpec = ""
     @Published var urlSpec = ""
-    
     @Published var slotType = 0
-    
     @Published var nameType = ""
     @Published var urlType = ""
-    
     @Published var baseStats = 0
     @Published var effortStats = 0
-    
     @Published var nameStat = ""
     @Published var urlStat = ""
     
@@ -67,7 +48,7 @@ class PokeDetailViewModel: ObservableObject {
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
-            guard let returned = try? JSONDecoder().decode(Main.self, from: data) else {
+            guard let returned = try? JSONDecoder().decode(Mainn.self, from: data) else {
                 print("Error: could not decode returned JSON data")
                 return
             }
@@ -78,9 +59,7 @@ class PokeDetailViewModel: ObservableObject {
             self.id = returned.id
             self.imageUrl = returned.sprites.front_default ?? ""
             self.imageUrlShiny = returned.sprites.front_shiny ?? ""
-           
-          //  self.slotType = returned.types[TypeElement].slot
-            
+            print(statsArray.description)
         } catch {
            print("Error: could not user URL at \(urlString) to get data and response")
         }

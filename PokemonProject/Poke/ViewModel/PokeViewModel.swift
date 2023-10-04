@@ -6,22 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 class PokeViewModel: ObservableObject {
-    
+   
     private struct Main: Codable {
         var count: Int
         var next: String?
         var results: [Result]
-        
     }
     
     @Published var urlString = "https://pokeapi.co/api/v2/pokemon/"
     @Published var count = 0
     @Published var pokeArray: [Result] = []
     @Published var isLoading = false
-    
     
     func getData() async{
         print("we are accessing the url \(urlString)")

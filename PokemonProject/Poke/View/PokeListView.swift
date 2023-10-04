@@ -12,39 +12,19 @@ struct PokeListView: View {
     @StateObject var pokeVM = PokeViewModel()
     @StateObject var pokeDetVM = PokeDetailViewModel()
     @State private var searchText = ""
-    
+    @StateObject var pokeDetailVM = PokeDetailViewModel()
+    @EnvironmentObject var vm: PokeDetailViewModel
     var body: some View {
-        NavigationView{
+       NavigationView{
             ZStack {
+                
                 List(searchResults) { pokemon in
                     LazyVStack {
                         NavigationLink {
-                            DetailPokeView(result: pokemon, stats: Stats(base_stat: pokeDetVM.baseStats, effort: pokeDetVM.effortStats), types: TypeElement(slot: pokeDetVM.slotType, type: Species(name: pokeDetVM.nameSpec, url: pokeDetVM.urlSpec)))
-                            //DetailPokeView(result: pokemon )
+                            DetailPokeView(result: pokemon, stats: Stats(base_stat: pokeDetVM.baseStats, effort: pokeDetVM.effortStats, stat: Species(name: pokeDetVM.nameSpec, url: pokeDetVM.urlSpec)), types: TypeElement(slot: pokeDetVM.slotType, type: Species(name: pokeDetVM.nameSpec, url: pokeDetVM.urlSpec)), species: Species(name: pokeDetVM.nameSpec, url: pokeDetVM.urlSpec))
                         } label: {
                             HStack{
                                 Text(pokemon.name.capitalized)
-
-                                
-                             /*   AsyncImage(url: URL(string: pokemon.url)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .background(.white)
-                                        .frame(maxWidth: 40)
-                                        .cornerRadius(16)
-                                        .shadow(radius: 8, x: 5, y: 5)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .stroke(.gray.opacity(0.5))
-                                        )
-                                        .padding(.trailing)
-                                } placeholder: {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .foregroundColor(.clear)
-                                        .frame(maxWidth: 26, maxHeight: 26)
-                                }*/
-                                
                             }
                     }
                     }
@@ -78,14 +58,11 @@ struct PokeListView: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .green))
                     .scaleEffect(4)
                 }
-
             }
-          
         }
         .task {
             await pokeVM.getData()
         }
-        
     }
     var searchResults: [Result]{
         if searchText.isEmpty{

@@ -15,8 +15,9 @@
 		CFCACB232AC8EDE600C132A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCACB222AC8EDE600C132A3 /* Preview Assets.xcassets */; };
 		CFCACB2C2AC9014000C132A3 /* PokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCACB2B2AC9014000C132A3 /* PokeViewModel.swift */; };
 		CFCACB2E2AC90EF300C132A3 /* DetailPokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCACB2D2AC90EF300C132A3 /* DetailPokeView.swift */; };
-		CFCACB322AC9135C00C132A3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCACB312AC9135C00C132A3 /* Result.swift */; };
+		CFCACB322AC9135C00C132A3 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCACB312AC9135C00C132A3 /* ResultModel.swift */; };
 		CFCACB342AC9179700C132A3 /* PokeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCACB332AC9179700C132A3 /* PokeDetailViewModel.swift */; };
+		CFEAB1662ACE2D8500936C8E /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEAB1652ACE2D8500936C8E /* AnnouncementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +30,9 @@
 		CFCACB292AC8F1A900C132A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CFCACB2B2AC9014000C132A3 /* PokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeViewModel.swift; sourceTree = "<group>"; };
 		CFCACB2D2AC90EF300C132A3 /* DetailPokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokeView.swift; sourceTree = "<group>"; };
-		CFCACB312AC9135C00C132A3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		CFCACB312AC9135C00C132A3 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		CFCACB332AC9179700C132A3 /* PokeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailViewModel.swift; sourceTree = "<group>"; };
+		CFEAB1652ACE2D8500936C8E /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF4065D02ACDE31900D23D6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFCACB1D2AC8EDE400C132A3 /* PokeListView.swift */,
+				CFCACB2D2AC90EF300C132A3 /* DetailPokeView.swift */,
+				CFEAB1652ACE2D8500936C8E /* AnnouncementView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF4065D12ACDE32000D23D6F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFCACB2B2AC9014000C132A3 /* PokeViewModel.swift */,
+				CFCACB332AC9179700C132A3 /* PokeDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF4065D22ACDE33300D23D6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF6748772AC9F4270005FC04 /* MainModel.swift */,
+				CFCACB312AC9135C00C132A3 /* ResultModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CFCACB0F2AC8EDE400C132A3 = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +114,9 @@
 		CFCACB2A2AC9012600C132A3 /* Poke */ = {
 			isa = PBXGroup;
 			children = (
-				CFCACB1D2AC8EDE400C132A3 /* PokeListView.swift */,
-				CFCACB2B2AC9014000C132A3 /* PokeViewModel.swift */,
-				CFCACB2D2AC90EF300C132A3 /* DetailPokeView.swift */,
-				CFCACB312AC9135C00C132A3 /* Result.swift */,
-				CFCACB332AC9179700C132A3 /* PokeDetailViewModel.swift */,
-				CF6748772AC9F4270005FC04 /* MainModel.swift */,
+				CF4065D22ACDE33300D23D6F /* Model */,
+				CF4065D12ACDE32000D23D6F /* ViewModel */,
+				CF4065D02ACDE31900D23D6F /* View */,
 			);
 			path = Poke;
 			sourceTree = "<group>";
@@ -171,12 +198,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFCACB2E2AC90EF300C132A3 /* DetailPokeView.swift in Sources */,
-				CFCACB322AC9135C00C132A3 /* Result.swift in Sources */,
+				CFCACB322AC9135C00C132A3 /* ResultModel.swift in Sources */,
 				CFCACB2C2AC9014000C132A3 /* PokeViewModel.swift in Sources */,
 				CF6748782AC9F4270005FC04 /* MainModel.swift in Sources */,
 				CFCACB1E2AC8EDE400C132A3 /* PokeListView.swift in Sources */,
 				CFCACB342AC9179700C132A3 /* PokeDetailViewModel.swift in Sources */,
 				CFCACB1C2AC8EDE400C132A3 /* PokemonProjectApp.swift in Sources */,
+				CFEAB1662ACE2D8500936C8E /* AnnouncementView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
